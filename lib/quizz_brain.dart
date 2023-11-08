@@ -1,15 +1,18 @@
-import 'package:quizzler/question.dart';
+import 'package:quizzler/question.dart'; // Import the 'question' module.
 
 class QuizzBrain {
-  int _questionNumber = 0;
+  int _questionNumber = 0; // Initialize the question number to 0.
 
   final List<Question> _questions = [
+    // Create a list of Question objects with questions, answers, and additional information.
     Question(
-      question: "Flutter is an open-source UI toolkit ?",
-      answer: true,
-      infos: "Flutter is an open-source UI toolkit for creating"
+      question: "Flutter is an open-source UI toolkit ?", // Question.
+      answer: true, // Answer (true or false).
+      infos:
+          "Flutter is an open-source UI toolkit for creating" // Additional information.
           " exceptional front-end cross-platform applications.",
     ),
+
     Question(
       question: "Flutter is developed by Facebook ?",
       answer: false,
@@ -74,30 +77,32 @@ class QuizzBrain {
   ];
 
   String getQuestion() {
-    return _questions[_questionNumber].question;
+    return _questions[_questionNumber].question; // Get the current question.
   }
 
   String getInfos() {
-    return _questions[_questionNumber].infos;
+    return _questions[_questionNumber]
+        .infos; // Get the additional information for the current question.
   }
 
   bool getAnswer() {
-    return _questions[_questionNumber].answer;
+    return _questions[_questionNumber]
+        .answer; // Get the answer for the current question.
   }
 
   void nextQuestion() {
     if (_questionNumber < _questions.length - 1) {
-      _questionNumber++;
+      _questionNumber++; // Move to the next question if available.
     }
   }
 
   void reset() {
-    _questionNumber = 0;
+    _questionNumber = 0; // Reset the question number to the first question.
   }
 
   bool isFinished() {
     if (_questionNumber >= _questions.length - 1) {
-      return true;
+      return true; // Check if all questions have been answered.
     } else {
       return false;
     }
